@@ -1,722 +1,592 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Pace nel Mondo - Preghiera per la Pace</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
+            font-family: 'Georgia', serif;
+            background-color: #000;
+            color: #fff;
             line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #222 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, #333 0%, transparent 50%);
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
             position: relative;
         }
 
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
+        h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: normal;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             position: relative;
             display: inline-block;
         }
 
-        .section-title h2::after {
+        h1::after {
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
+            left: 25%;
+            width: 50%;
             height: 2px;
-            background-color: var(--accent);
+            background: linear-gradient(to right, transparent, #fff, transparent);
         }
 
-        .footer-column p {
-            margin-bottom: 1rem;
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-style: italic;
+            color: #ccc;
         }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        .candle-section {
             display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px 0;
+            position: relative;
         }
 
-        .social-links a:hover {
-            background-color: var(--accent);
+        .candle {
+            position: relative;
+            width: 50px;
+            height: 140px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .candle:hover {
             transform: translateY(-5px);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .candle-body {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to right, #444, #eee, #444);
+            border-radius: 3px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        .mobile-menu {
-            display: none;
+        .candle-wax {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #222 0%, #666 30%, #aaa 70%, #ddd 100%);
+            border-radius: 3px;
+        }
+
+        .candle-flame {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 
+                0 0 20px 10px rgba(255, 255, 255, 0.8),
+                0 0 40px 20px rgba(255, 200, 100, 0.4);
+            animation: flicker 1.5s infinite alternate;
+            z-index: 10;
+        }
+
+        .candle-flame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 35px;
+            background: rgba(255, 230, 150, 0.8);
+            border-radius: 50% 50% 20% 20%;
+        }
+
+        .candle-flame::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50% 50% 20% 20%;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                transform: translateX(-50%) scaleY(1) scaleX(1);
+                opacity: 0.9;
+            }
+            25% {
+                transform: translateX(-50%) scaleY(1.1) scaleX(0.9);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) scaleY(0.9) scaleX(1.1);
+                opacity: 0.8;
+            }
+            75% {
+                transform: translateX(-50%) scaleY(1.05) scaleX(0.95);
+                opacity: 0.95;
+            }
+        }
+
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .article {
+            background: rgba(30, 30, 30, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #fff, #aaa);
+        }
+
+        .article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .article h2 {
             font-size: 1.5rem;
-            cursor: pointer;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #555;
+            position: relative;
         }
 
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
+        .article h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #fff;
+        }
+
+        .article p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.4rem;
+            margin: 60px 0;
+            padding: 30px;
+            position: relative;
+        }
+
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quote::before {
+            top: 0;
+            left: 20px;
+        }
+
+        .quote::after {
+            bottom: -30px;
+            right: 20px;
+        }
+
+        .doves-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .dove {
+            font-size: 3rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .dove:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .dove:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
             }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
+            33% {
+                transform: translateY(-20px) rotate(5deg);
             }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
+            66% {
+                transform: translateY(-10px) rotate(-3deg);
             }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #fff, transparent);
+        }
+
+        .prayer-button {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 40px;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prayer-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .prayer-button:active {
+            transform: scale(0.98);
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
+            h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .candle-section {
+                gap: 20px;
             }
             
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .initiatives-grid {
+            .articles-container {
                 grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
+            .candle {
+                width: 40px;
+                height: 120px;
             }
         }
 
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+        /* Effetti particellari */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: particle-float 15s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Pace nel Mondo</h1>
+            <p class="subtitle">Unisciti a noi nella preghiera per un mondo senza guerra, dove la compassione e la comprensione prevalgono sul conflitto.</p>
+            
+            <div class="doves-container">
+                <div class="dove">🕊️</div>
+                <div class="dove">🕊️</div>
+                <div class="dove">🕊️</div>
             </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
+        <div class="candle-section">
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
+            </div>
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
+            </div>
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
+            </div>
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
+            </div>
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
+            </div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
-                </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <p class="quote">"La pace non può essere mantenuta con la forza; può essere raggiunta solo con la comprensione." - Albert Einstein</p>
 
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
-            </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <button class="prayer-button">Accendi una candela virtuale</button>
 
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
-        </div>
-    </section>
+        <div class="articles-container">
+            <article class="article">
+                <h2>Il Valore della Pace</h2>
+                <p>La pace è il fondamento su cui costruire società prospere e giuste. Senza pace, i progressi nell'istruzione, nella salute e nel benessere economico diventano impossibili. La pace permette alle comunità di fiorire e agli individui di realizzare il loro pieno potenziale.</p>
+                <p>Ogni essere umano ha il diritto di vivere in un ambiente pacifico, libero dalla paura e dalla violenza. Dobbiamo lavorare insieme per creare condizioni che favoriscano la comprensione reciproca e la risoluzione pacifica dei conflitti.</p>
+                <p>La pace non è semplicemente l'assenza di guerra, ma uno stato di armonia in cui le diversità sono rispettate e le risorse sono condivise equamente.</p>
+            </article>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+            <article class="article">
+                <h2>Le Conseguenze della Guerra</h2>
+                <p>La guerra distrugge non solo infrastrutture e economie, ma anche il tessuto sociale delle comunità. Separa le famiglie, priva i bambini della loro infanzia e lascia cicatrici psicologiche che possono durare generazioni.</p>
+                <p>I conflitti armati causano sofferenze indicibili, sfollamenti di massa e violazioni dei diritti umani. È nostro dovere ricordare queste conseguenze e lavorare instancabilmente per prevenire future guerre.</p>
+                <p>Oltre alle perdite umane immediate, la guerra compromette l'accesso all'istruzione, alla sanità e alle risorse fondamentali, creando un circolo vizioso di povertà e disperazione.</p>
+            </article>
+
+            <article class="article">
+                <h2>Speranza per il Futuro</h2>
+                <p>Nonostante le sfide attuali, c'è motivo di sperare. In tutto il mondo, individui e organizzazioni stanno lavorando per promuovere la pace attraverso il dialogo, l'educazione e la cooperazione.</p>
+                <p>Ogni gesto di gentilezza, ogni atto di comprensione e ogni sforzo per costruire ponti tra culture diverse contribuisce a creare un mondo più pacifico. Insieme, possiamo essere il cambiamento che vogliamo vedere.</p>
+                <p>Le nuove generazioni stanno mostrando una consapevolezza globale senza precedenti, riconoscendo che il nostro destino è interconnesso e che la pace è un bene comune da preservare per tutti.</p>
+            </article>
+        </div>
+
+        <div class="candle-section">
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
-                </div>
+                <div class="candle-flame"></div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
+            </div>
+            <div class="candle">
+                <div class="candle-body">
+                    <div class="candle-wax"></div>
+                </div>
+                <div class="candle-flame"></div>
             </div>
         </div>
-    </footer>
+
+        <footer>
+            <p>Unisciti a questa preghiera per la pace. Condividi questo messaggio di speranza.</p>
+            <p>© 2023 Preghiera per la Pace nel Mondo - Tutti i diritti riservati</p>
+        </footer>
+    </div>
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
+        // Crea particelle fluttuanti
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
             
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
                 
-                const inc = target / speed;
+                // Posizione casuale
+                const left = Math.random() * 100;
+                const animationDuration = 15 + Math.random() * 15;
+                const animationDelay = Math.random() * 20;
                 
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Aggiunge un effetto di scintillio casuale alle fiamme delle candele
+        function enhanceCandles() {
+            const flames = document.querySelectorAll('.candle-flame');
+            
+            flames.forEach(flame => {
+                // Imposta un'animazione leggermente diversa per ogni fiamma
+                const duration = 1.2 + Math.random() * 0.6;
+                flame.style.animationDuration = `${duration}s`;
+                
+                // Aggiunge un effetto di scintillio casuale
+                setInterval(() => {
+                    flame.style.opacity = 0.7 + Math.random() * 0.3;
+                }, 200);
             });
         }
-
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        
+        // Aggiunge un effetto di dissolvenza agli articoli quando vengono visualizzati
+        function fadeInArticles() {
+            const articles = document.querySelectorAll('.article');
+            
+            const fadeInOnScroll = () => {
+                articles.forEach(article => {
+                    const articleTop = article.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
                     
-                    document.querySelector('nav ul').classList.remove('active');
-                }
+                    if (articleTop < windowHeight - 100) {
+                        article.style.opacity = '1';
+                        article.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Inizializza gli articoli come trasparenti
+            articles.forEach(article => {
+                article.style.opacity = '0';
+                article.style.transform = 'translateY(20px)';
+                article.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             });
+            
+            // Controlla la posizione di scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Controlla all'inizio
+        }
+        
+        // Gestisce il click sul pulsante di preghiera
+        function setupPrayerButton() {
+            const button = document.querySelector('.prayer-button');
+            const candleSection = document.querySelector('.candle-section');
+            
+            button.addEventListener('click', function() {
+                // Crea una nuova candela
+                const newCandle = document.createElement('div');
+                newCandle.classList.add('candle');
+                newCandle.innerHTML = `
+                    <div class="candle-body">
+                        <div class="candle-wax"></div>
+                    </div>
+                    <div class="candle-flame"></div>
+                `;
+                
+                // Aggiunge la candela alla sezione
+                candleSection.appendChild(newCandle);
+                
+                // Applica l'effetto alla nuova candela
+                enhanceCandles();
+                
+                // Mostra un messaggio di ringraziamento
+                button.textContent = 'Grazie per la tua preghiera';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.textContent = 'Accendi una candela virtuale';
+                    button.disabled = false;
+                }, 3000);
+            });
+        }
+        
+        // Inizializza tutto quando il documento è caricato
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            enhanceCandles();
+            fadeInArticles();
+            setupPrayerButton();
         });
     </script>
 </body>
-
 </html>
